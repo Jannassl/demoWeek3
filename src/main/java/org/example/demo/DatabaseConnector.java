@@ -1,17 +1,20 @@
 package org.example.demo;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DatabaseConnector {
-    private static final String URL = "jdbc:mysql://localhost:3306/kielet";
-    private static final String USER = "root";
-    private static final String PASSWORD = "Nasslingmaga98";
+    private static final Dotenv dotenv = Dotenv.load();
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        String url = dotenv.get("DB_URL");
+        String user = dotenv.get("DB_USER");
+        String password = dotenv.get("DB_PASSWORD");
+        return DriverManager.getConnection(url, user, password);
     }
 
     public static void saveData(String firstName, String lastName, String email, String tableName) {
