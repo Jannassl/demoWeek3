@@ -1,0 +1,2 @@
+Projekti käyttää Mysql tietokantaa ja siellä on kolme taulua kolmelle kielelle. 
+Lokalisaatio ratkaisu "Table  based localization". Käyttäjä valitsee kielen ja täyttää tiedot. Tiedot tallentuvat kielen mukaiseen tietokantaan.
